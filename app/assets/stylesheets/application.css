@@ -18,6 +18,11 @@
   width: 450px;
   margin: 50px auto;
  }
+
+ ul{
+  list-style-type: none;
+ }
+
 a:any-link {
   text-decoration: none;
 }

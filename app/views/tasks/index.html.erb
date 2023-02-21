@@ -1,7 +1,7 @@
 <h1>My tasks</h1>
 <ul>
   <% @tasks.each do |task| %>
-    <li> <%= link_to task.title, task_path(task) %> - <%= link_to "<i class='fa-solid fa-dumpster'></i>".html_safe, task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %> </li>
+    <li> <%=task.completed ? "<i class='fa-regular fa-square-check'></i>".html_safe : "<i class='fa-regular fa-square'></i>".html_safe %> <%= link_to task.title, task_path(task) %> - <%= link_to "<i class='fa-solid fa-dumpster'></i>".html_safe, task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %> </li>
   <%end%>
 </ul>
 
