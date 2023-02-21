@@ -1,13 +1,20 @@
-<h1> <%= @task.title%> </h1>
+<div class="d-flex align-items-center justify-content-between" >
+  <h1> <%= @task.title%> </h1>
+  <%= link_to "<i class='fa-solid fa-pen'></i> Edit this task".html_safe, edit_task_path, class:'btn btn-light border' %>
+</div>
 
-<%= link_to 'Edit this task', edit_task_path %>
+<div class="alert alert-secondary">
+  <%= @task.details %>
+</div>
 
-<p> <%= @task.details %> </p>
+<div class="d-flex">
+  <input type="checkbox" class="form-check-input me-2" <%=@task.completed ? 'checked': 'unchecked' %> disabled>
+  <% if @task.completed %>
+    <p>This task is completed! </p>
+  <% else %>
+    <p>This task is not completed now</p>
+  <% end %>
+</div>
 
-<% if @task.completed %>
-  <p>This task is completed! </p>
-<% else %>
-  <p>This task is not completed now</p>
-<% end %>
 
-<%= link_to "Back to list", tasks_path %>
+<%= render "link_back"%>
